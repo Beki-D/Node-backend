@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
-const PORT = 4000;
 
+// Define the root route
+app.get("/", (req, res) => {
+  res.status(200).json("Welcome to the root endpoint!");
+});
+
+// Define the /home route
 app.get("/home", (req, res) => {
   res.status(200).json("Welcome, your app is working well");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
-
-// Export the Express API
+// Export the app for Vercel
 module.exports = app;
